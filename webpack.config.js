@@ -1,6 +1,11 @@
 const path = require('path');
 const uglify = require('uglifyjs-webpack-plugin');
 const htmlPlugin= require('html-webpack-plugin');
+const extractTextPlugin = require("extract-text-webpack-plugin");
+
+var website ={
+    publicPath:"http://localhost:1018/"
+}
 module.exports={
     //入口文件的配置项
     entry:{
@@ -12,20 +17,18 @@ module.exports={
         //输出的路径，用了Node语法
         path:path.resolve(__dirname,'dist'),
         //输出的文件名称
-        filename:'[name].js'
+        filename:'[name].js',
+        publicPath:website.publicPath
     },
     //模块：例如解读CSS,图片如何转换，压缩
     module:{
         rules: [
             {
-                test:/\.css$/,
-                use: [
-                    {
-                        loader: "style-loader"
-                    }, {
-                        loader: "css-loader"
-                    }
-                ]
+                test: /\.css$/,
+                use: extractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use: "css-loader"
+                })
             },
             {
                 test:/\.(png|jpg|gif)/ ,
@@ -47,7 +50,8 @@ module.exports={
             },
             hash:true,//hash：为了开发中js有缓存效果，所以加入hash，这样可以有效避免缓存JS。
             template:'./src/index.html'//template：是要打包的html模版路径和文件名称。
-        })
+        }),
+        new extractTextPlugin("/css/index.css")
     ],
     //配置webpack开发服务功能
     devServer:{
