@@ -35,9 +35,14 @@ module.exports={
                 use:[{
                     loader:'url-loader',
                     options:{
-                        limit:500000
+                        limit:500,
+                        outputPath:'images/',
                     }
                 }]
+            },
+            {
+                test: /\.(htm|html)$/i,
+                use:[ 'html-withimg-loader']
             }
         ]
     },

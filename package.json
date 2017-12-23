@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "webpack-dev-server"
+    "server": "webpack-dev-server",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -18,11 +19,13 @@
   },
   "homepage": "https://github.com/Jettfeng/webpack3x#readme",
   "dependencies": {
+    "html-withimg-loader": "^0.1.16",
     "webpack": "^3.10.0"
   },
   "devDependencies": {
     "css-loader": "^0.28.7",
     "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.6",
     "html-webpack-plugin": "^2.30.1",
     "style-loader": "^0.19.1",
     "uglifyjs-webpack-plugin": "^1.1.4",
