@@ -1,4 +1,5 @@
 const path = require('path');
+const uglify = require('uglifyjs-webpack-plugin');
 module.exports={
     //入口文件的配置项
     entry:{
@@ -22,7 +23,9 @@ module.exports={
         ]
     },
     //插件，用于生产模版和各项功能
-    plugins:[],
+    plugins:[
+        new uglify()
+    ],
     //配置webpack开发服务功能
     devServer:{
         //设置基本目录结构
