@@ -31,6 +31,21 @@ module.exports={
                 })
             },
             {
+                test: /\.less$/,
+                use: extractTextPlugin.extract({
+                    use: [
+                        {
+                            loader: "css-loader"
+                        },
+                        {
+                            loader: "less-loader"
+                        }
+                    ],
+                    // use style-loader in development
+                    fallback: "style-loader"
+                })
+            },
+            {
                 test:/\.(png|jpg|gif)/ ,
                 use:[{
                     loader:'url-loader',
@@ -56,7 +71,7 @@ module.exports={
             hash:true,//hash：为了开发中js有缓存效果，所以加入hash，这样可以有效避免缓存JS。
             template:'./src/index.html'//template：是要打包的html模版路径和文件名称。
         }),
-        new extractTextPlugin("/css/index.css")
+        new extractTextPlugin("css/index.css")
     ],
     //配置webpack开发服务功能
     devServer:{
