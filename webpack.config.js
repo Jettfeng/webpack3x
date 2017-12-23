@@ -9,6 +9,7 @@ var website ={
     publicPath:"http://localhost:1018/"
 }
 module.exports={
+    devtool: 'source-map',
     //入口文件的配置项
     entry:{
         entry:'./src/js/entry.js',
