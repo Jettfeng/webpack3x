@@ -1,0 +1,26 @@
+{
+  "name": "webpack3x",
+  "version": "1.0.0",
+  "description": "webpack   webpack3 webpack3.x\r <h2>配置文件： 服务和热更新</h2>\r ![image](https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1514015024770&di=1284b3d94aa00cd54e37bcc33f7efce5&imgtype=0&src=http%3A%2F%2Fwww.hishop.com.cn%2Fuploads%2F150914%2F21678-150914112244436.jpg)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jettfeng/webpack3x.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jettfeng/webpack3x/issues"
+  },
+  "homepage": "https://github.com/Jettfeng/webpack3x#readme",
+  "dependencies": {
+    "webpack": "^3.10.0"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^2.9.7"
+  }
+}
