@@ -1,0 +1,1 @@
+console.log('this is a file named entery2.js')
