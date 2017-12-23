@@ -9,4 +9,5 @@ body{
     font-size: 30px;
     color:red;
     font-weight:700;
+    transform: rotate(45deg);
 }

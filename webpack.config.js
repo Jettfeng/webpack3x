@@ -27,20 +27,31 @@ module.exports={
                 test: /\.css$/,
                 use: extractTextPlugin.extract({
                     fallback: "style-loader",
-                    use: "css-loader"
+                    use: [
+                        { loader: 'css-loader', options: { importLoaders: 1 } },
+                        'postcss-loader'
+                    ]
                 })
             },
             {
                 test: /\.less$/,
                 use: extractTextPlugin.extract({
                     use: [
-                        {
-                            loader: "css-loader"
-                        },
-                        {
-                            loader: "less-loader"
-                        }
+                        { loader: 'css-loader', options: { importLoaders: 1 } },
+                        "less-loader",
+                        'postcss-loader'
                     ],
+                    // use: [
+                    //     {
+                    //         loader: "css-loader"
+                    //     },
+                    //     {
+                    //         loader: "less-loader"
+                    //     },
+                    //     {
+                    //         loader: "'postcss-loader'"
+                    //     }
+                    // ],
                     // use style-loader in development
                     fallback: "style-loader"
                 })
@@ -48,11 +59,22 @@ module.exports={
             {
                 test: /\.scss$/,
                 use: extractTextPlugin.extract({
-                    use: [{
-                        loader: "css-loader"
-                    }, {
-                        loader: "sass-loader"
-                    }],
+                    use: [
+                        { loader: 'css-loader', options: { importLoaders: 1 } },
+                        "sass-loader",
+                        'postcss-loader'
+                    ],
+                    // use: [
+                    //     {
+                    //         loader: "css-loader"
+                    //     },
+                    //     {
+                    //         loader: "sass-loader"
+                    //     },
+                    //     {
+                    //         loader: "'postcss-loader'"
+                    //     }
+                    // ],
                     // use style-loader in development
                     fallback: "style-loader"
                 })
