@@ -41,8 +41,15 @@ module.exports={
                 }]
             },
             {
-                test: /\.(htm|html)$/i,
-                use:[ 'html-withimg-loader']
+                // test: /\.(htm|html)$/i,
+                // use:[ 'html-withimg-loader']
+                test: /\.html$/,
+                use: [ {
+                    loader: 'html-loader',
+                    options: {
+                        minimize: true
+                    }
+                }]
             }
         ]
     },
