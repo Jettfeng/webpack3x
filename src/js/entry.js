@@ -1,4 +1,8 @@
 import css from '../css/index.css';
 import less from '../css/black.less';
-import less from '../css/white.scss';
-document.getElementById('title').innerHTML='Hello Webpack';
+import white from '../css/white.scss';
+
+{
+    let str = 'babel-loader in Webpack'
+    document.getElementById('title').innerHTML=str
+}
