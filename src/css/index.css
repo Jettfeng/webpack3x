@@ -2,3 +2,11 @@ body{
     background-color: red;
     color: white;
 }
+#tupian{
+    width: 300px;
+    height: 300px;
+    background: url("../images/img.jpg") no-repeat 0 0;
+    font-size: 30px;
+    color:red;
+    font-weight:700;
+}

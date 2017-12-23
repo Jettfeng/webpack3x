@@ -18,8 +18,23 @@ module.exports={
     module:{
         rules: [
             {
-                test: /\.css$/,
-                use: [ 'style-loader', 'css-loader' ]
+                test:/\.css$/,
+                use: [
+                    {
+                        loader: "style-loader"
+                    }, {
+                        loader: "css-loader"
+                    }
+                ]
+            },
+            {
+                test:/\.(png|jpg|gif)/ ,
+                use:[{
+                    loader:'url-loader',
+                    options:{
+                        limit:500000
+                    }
+                }]
             }
         ]
     },
