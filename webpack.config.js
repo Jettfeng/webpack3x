@@ -5,6 +5,7 @@ const extractTextPlugin = require("extract-text-webpack-plugin");
 const glob = require('glob');
 const PurifyCSSPlugin = require("purifycss-webpack");
 const webpack = require('webpack')
+const copyWebpackPlugin= require("copy-webpack-plugin");
 
 const entry = require('./webpack_config/entry_webpack')
 
@@ -139,6 +140,10 @@ module.exports={
             //最小打包的文件模块数，这里直接写2就好
             minChunks:2
         }),
+        new copyWebpackPlugin([{
+            from:__dirname+'/src/public',
+            to:'assets/public'
+        }])
     ],
     //配置webpack开发服务功能
     devServer:{
