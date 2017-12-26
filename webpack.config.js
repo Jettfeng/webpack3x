@@ -4,6 +4,7 @@ const htmlPlugin= require('html-webpack-plugin');
 const extractTextPlugin = require("extract-text-webpack-plugin");
 const glob = require('glob');
 const PurifyCSSPlugin = require("purifycss-webpack");
+const webpack = require('webpack')
 
 const entry = require('./webpack_config/entry_webpack')
 
@@ -125,6 +126,9 @@ module.exports={
         new PurifyCSSPlugin({
             // Give paths to parse for rules. These should be absolute!
             paths: glob.sync(path.join(__dirname, 'src/*.html')),
+        }),
+        new webpack.ProvidePlugin({
+            $: 'jquery'
         })
     ],
     //配置webpack开发服务功能
