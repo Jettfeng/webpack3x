@@ -130,7 +130,15 @@ module.exports={
         new webpack.ProvidePlugin({
             $: 'jquery'
         }),
-        new webpack.BannerPlugin('webpack3x demo')
+        new webpack.BannerPlugin('webpack3x demo'),
+        new webpack.optimize.CommonsChunkPlugin({
+            //name对应入口文件中的名字，我们起的是jQuery
+            name:'jquery',
+            //把文件打包到哪里，是一个路径
+            filename:"assets/js/jquery.min.js",
+            //最小打包的文件模块数，这里直接写2就好
+            minChunks:2
+        }),
     ],
     //配置webpack开发服务功能
     devServer:{
