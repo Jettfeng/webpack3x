@@ -5,9 +5,16 @@ const extractTextPlugin = require("extract-text-webpack-plugin");
 const glob = require('glob');
 const PurifyCSSPlugin = require("purifycss-webpack");
 
-var website ={
-    publicPath:"http://localhost:1018/"
+if(process.env.type== "build"){
+    var website={
+        publicPath:"http://xxxx.com/"
+    }
+}else{
+    var website ={
+        publicPath:"http://localhost:1018/"
+    }
 }
+
 module.exports={
     devtool: 'source-map',
     //入口文件的配置项
