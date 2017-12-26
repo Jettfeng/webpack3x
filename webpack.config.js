@@ -5,6 +5,8 @@ const extractTextPlugin = require("extract-text-webpack-plugin");
 const glob = require('glob');
 const PurifyCSSPlugin = require("purifycss-webpack");
 
+const entry = require('./webpack_config/entry_webpack')
+
 if(process.env.type== "build"){
     var website={
         publicPath:"http://xxxx.com/"
@@ -18,10 +20,7 @@ if(process.env.type== "build"){
 module.exports={
     devtool: 'source-map',
     //入口文件的配置项
-    entry:{
-        entry:'./src/js/entry.js',
-        entry2:'./src/js/entry2.js'
-    },
+    entry:entry.path,
     //出口文件的配置项
     output:{
         //输出的路径，用了Node语法
