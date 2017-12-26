@@ -143,7 +143,8 @@ module.exports={
         new copyWebpackPlugin([{
             from:__dirname+'/src/public',
             to:'assets/public'
-        }])
+        }]),
+        new webpack.HotModuleReplacementPlugin()
     ],
     //配置webpack开发服务功能
     devServer:{
