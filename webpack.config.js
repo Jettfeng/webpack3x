@@ -114,7 +114,7 @@ module.exports={
     },
     //插件，用于生产模版和各项功能
     plugins:[
-        new uglify(),
+        // new uglify(),
         new htmlPlugin({
             minify:{
                 removeAttributeQuotes:true//是对html文件进行压缩，removeAttrubuteQuotes是却掉属性的双引号。
@@ -129,7 +129,8 @@ module.exports={
         }),
         new webpack.ProvidePlugin({
             $: 'jquery'
-        })
+        }),
+        new webpack.BannerPlugin('webpack3x demo')
     ],
     //配置webpack开发服务功能
     devServer:{
@@ -141,5 +142,13 @@ module.exports={
         compress:true,
         //配置服务端口号
         port:1018
+    },
+    watchOptions:{
+        //检测修改的时间，以毫秒为单位
+        poll:1000,
+        //防止重复保存而发生重复编译错误。这里设置的500是半秒内重复保存，不进行打包操作
+        aggregateTimeout:500,
+        //不监听的目录
+        ignored:/node_modules/
     }
 }
