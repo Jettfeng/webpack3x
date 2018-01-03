@@ -1,4 +1,4 @@
-<h2>入口好出口</h2>
+<h2>入口和出口</h2>
 <p>webpack.config.js</p>
 <p></p>
 <p>module.exports={</p>
